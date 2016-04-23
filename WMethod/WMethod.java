@@ -384,25 +384,25 @@ public class WMethod{
      Utilities.printAllTestCases(tests); // Print tests.
      
   
-     //String input1 = "a a b a b";
-     //String input2 = "b b a a";
-     //String input3 = "b a b b a";
-     //String input4 = "b a b a b";
-     //String input5 = "b a b";
-     //Utilities.runFSM(FSM, startState, input1, " ");
-     //Utilities.runFSM(FSM, startState + 1, input2, " ");
-     //Utilities.runFSM(FSM, startState + 2, input3, " ");
-     //Utilities.runFSM(FSM, startState + 3, input4, " ");
-     //Utilities.runFSM(FSM, startState + 4, input5, " ");
+     String input1 = "a a b a b";
+     String input2 = "b b a a";
+     String input3 = "b a b b a";
+     String input4 = "b a b a b";
+     String input5 = "b a b";
+     Utilities.runFSM(FSM, startState, input1, " ");
+     Utilities.runFSM(FSM, startState + 1, input2, " ");
+     Utilities.runFSM(FSM, startState + 2, input3, " ");
+     Utilities.runFSM(FSM, startState + 3, input4, " ");
+     Utilities.runFSM(FSM, startState + 4, input5, " ");
      
      
-   //  while(tests !=null){
-   // 	 int i;
-    //	 i = startState;
-    //	 tests.get(i);
-    //	 System.out.println("public void test case" + i + "(){");
-    //	 tests.remove(i);
-     //}
+     while(tests !=null){
+    	 int i;
+     	 i = startState;
+         tests.get(i);
+    	 System.out.println("public void test case" + i + "(){");
+    	 tests.remove(i);
+    }
   
    }// End of main()
    
