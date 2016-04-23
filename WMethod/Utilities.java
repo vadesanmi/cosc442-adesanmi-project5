@@ -82,9 +82,9 @@ public class Utilities{
     String token;  // An input symbol from the input sequence.
     StringTokenizer inputTokens=new StringTokenizer(input, separator);
     int currentState=stateID;  // Rest the FSM to state StateID.
-    Utilities.debugFSMExecution("\nFSM execution begins. Input: "+input+" Initial state: "+stateID);
+    //Utilities.debugFSMExecution("\nFSM execution begins. Input: "+input+" Initial state: "+stateID);
     if(FSM[stateID]==null){
-      Utilities.printException("wAlgorithm", "runFSM", "Invalid start state. Execution aborted.");
+      //Utilities.printException("wAlgorithm", "runFSM", "Invalid start state. Execution aborted.");
       return;
     }
     while(inputTokens.hasMoreTokens()){
@@ -92,16 +92,19 @@ public class Utilities{
       try{
         Utilities.debugFSMExecution("Current state: "+currentState);
         Edge nextStateEdge=FSM[currentState].getNextState(token);
-        String outputGenerated=nextStateEdge.output();
-        int nextState=nextStateEdge.tail();
-        outputPattern=outputPattern+outputGenerated;
-        Utilities.debugFSMExecution(" Input: "+token+" Next state: "+nextState+" Output: "+outputGenerated);
+        if(nextStateEdge.output() == "yes"){
+        	String outputGenerated=nextStateEdge.output();
+        	int nextState=nextStateEdge.tail();
+            outputPattern=outputPattern+outputGenerated;
+        
+        //Utilities.debugFSMExecution(" Input: "+token+" Next state: "+nextState+" Output: "+outputGenerated);
         currentState=nextState;
+        }
       }catch (NoNextStateException e){
-        Utilities.printException("WMethod", "runFSM", " Invalid token: "+token);
+        //Utilities.printException("WMethod", "runFSM", " Invalid token: "+token);
       }
     }
-    Utilities.debugFSMExecution("\nFSM execution completed. Final state: "+currentState);
-    Utilities.debugFSMExecution("Output pattern:"+outputPattern);
+    //Utilities.debugFSMExecution("\nFSM execution completed. Final state: "+currentState);
+    //Utilities.debugFSMExecution("Output pattern:"+outputPattern);
   }
 }// End of class Utilities.
